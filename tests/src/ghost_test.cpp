@@ -1,47 +1,52 @@
 #include "common_test_fixture.h"
-#include "model/ghosts/blue_ghost.h"
-#include "model/ghosts/orange_ghost.h"
-#include "model/ghosts/purple_ghost.h"
-#include "model/ghosts/red_ghost.h"
-#include "model/pacman.h"
+#include "game_config.h"
+#include "entities/ghosts/blue_ghost.h"
+#include "entities/ghosts/orange_ghost.h"
+#include "entities/ghosts/purple_ghost.h"
+#include "entities/ghosts/red_ghost.h"
+#include "entities/pacman.h"
 #include "ghost_movement_manager.h"
 
 class GhostTest : public CommonTestFixture
 {
+protected:
+    GameConfig gameConfig;
 };
 
 TEST_F(GhostTest, CreateBlueGhost)
 {
-    BlueGhost blueGhost(nullptr);
+    const BlueGhost blueGhost{gameConfig.blueGhost().STARTING_COORDINATES, gameConfig.blueGhost().STARTING_DIRECTION};
     EXPECT_EQ(blueGhost.getCoordinates(), Coordinates(265, 318));
 }
 
 TEST_F(GhostTest, CreateOrangeGhost)
 {
-    OrangeGhost orangeGhost(nullptr);
+    const OrangeGhost orangeGhost{gameConfig.orangeGhost().STARTING_COORDINATES, gameConfig.orangeGhost().STARTING_DIRECTION};
     EXPECT_EQ(orangeGhost.getCoordinates(), Coordinates(349, 318));
 }
 
 TEST_F(GhostTest, CreatePurpleGhost)
 {
-    PurpleGhost purpleGhost(nullptr);
+    const PurpleGhost purpleGhost{gameConfig.purpleGhost().STARTING_COORDINATES, gameConfig.purpleGhost().STARTING_DIRECTION};
     EXPECT_EQ(purpleGhost.getCoordinates(), Coordinates(307, 318));
 }
 
 TEST_F(GhostTest, CreateRedGhost)
 {
-    RedGhost redGhost(nullptr);
+    const RedGhost redGhost{gameConfig.redGhost().STARTING_COORDINATES, gameConfig.redGhost().STARTING_DIRECTION};
     EXPECT_EQ(redGhost.getCoordinates(), Coordinates(307, 252));
 }
 
 TEST_F(GhostTest, ResetGhost)
 {
-    Pacman pacman(nullptr);
+    GameConfig gameConfig;
 
-    BlueGhost blueGhost(nullptr);
-    OrangeGhost orangeGhost(nullptr);
-    PurpleGhost purpleGhost(nullptr);
-    RedGhost redGhost(nullptr);
+    Pacman pacman(gameConfig.pacman().STARTING_COORDINATES, gameConfig.pacman().STARTING_DIRECTION);
+
+    BlueGhost blueGhost{gameConfig.blueGhost().STARTING_COORDINATES, gameConfig.blueGhost().STARTING_DIRECTION};
+    OrangeGhost orangeGhost{gameConfig.orangeGhost().STARTING_COORDINATES, gameConfig.orangeGhost().STARTING_DIRECTION};
+    PurpleGhost purpleGhost{gameConfig.purpleGhost().STARTING_COORDINATES, gameConfig.purpleGhost().STARTING_DIRECTION};
+    RedGhost redGhost{gameConfig.redGhost().STARTING_COORDINATES, gameConfig.redGhost().STARTING_DIRECTION};
 
     GhostMovementManager ghostMovementManager;
 

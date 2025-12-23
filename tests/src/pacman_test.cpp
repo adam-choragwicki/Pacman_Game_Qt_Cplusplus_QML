@@ -1,11 +1,16 @@
 #include "common_test_fixture.h"
-#include "model/pacman.h"
+#include "entities/pacman.h"
 #include "pacman_movement_manager.h"
+#include "game_config.h"
 
 class PacmanTest : public CommonTestFixture
 {
 protected:
-    Pacman pacman_{nullptr};
+    PacmanTest() : pacman_(gameConfig.pacman().STARTING_COORDINATES, gameConfig.pacman().STARTING_DIRECTION)
+    {}
+
+    GameConfig gameConfig;
+    Pacman pacman_;
 };
 
 TEST_F(PacmanTest, CreatePacman)

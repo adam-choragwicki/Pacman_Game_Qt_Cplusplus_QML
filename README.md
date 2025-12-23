@@ -1,27 +1,18 @@
 # Pacman
 
-C++ implementation of classic Pacman game using Qt 6.2.4 library.
+C++ implementation of the classic Pacman game using Qt 6.9.2.
 
-**Windows and Linux executables are provided.**
+Frontend is rendered using QML engine.
 
-![video.gif](video.gif)
+**Windows executable is provided.**
 
-# How to run on Linux
-1. Download release zip from:\
-   https://github.com/adam-choragwicki/Pacman_Game_Qt_Cplusplus/releases/latest/download/executable_linux.zip
-2. Unzip
-3. Run **executable_linux/Pacman.sh**
+![pacman.gif](pacman.gif)
 
-**OR**
-
-1. Clone repository and run **Pacman.sh**
+# Tests
+Unit tested using Google Test 1.17.0
 
 # How to run on Windows
 1. Download release zip from:\
    https://github.com/adam-choragwicki/Pacman_Game_Qt_Cplusplus/releases/latest/download/executable_windows.zip
 2. Unzip
-3. Run **executable_linux/Pacman.exe**
-
-**OR**
-
-1. Clone repository and run **Pacman.bat**
+3. Run **executable_windows/Pacman.exe**
